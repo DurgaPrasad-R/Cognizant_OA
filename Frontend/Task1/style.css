@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.gallery {
+    display: flex;
+    gap: 5px;
+    margin: 10px 10px;
+    justify-content: center;
+}
+
+.big {
+    display: flex;
+    justify-content: center;
+}
