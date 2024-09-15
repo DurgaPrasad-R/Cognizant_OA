@@ -1,0 +1,7 @@
+select h.hotel_id as 'Hotel id',
+	   h.hotel_name as 'Hotel Name',
+       h.hotel_type as 'Hotel Type'
+from hotel_details h
+join orders o
+on o.hotel_id = h.hotel_id
+and year(o.order_date) <> 2019 and month(o.order_date) not like 'May';
