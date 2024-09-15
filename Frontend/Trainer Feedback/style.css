@@ -1,0 +1,52 @@
+h1 {
+    text-align: center;
+    color: #FF00FF;
+    font-style: italic;
+}
+
+table {
+    text-align: left;
+    margin-left: 35%;
+    background-color: #F0F0F0;
+}
+
+caption {
+    font-weight: bold;
+    text-align: left;
+}
+
+table td {
+    text-align: center;
+}
+
+table th {
+    background-color: #800000;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #FF0080;
+}
+
+table tr:nth-child(odd) {
+    background-color: lightblue;
+}
+
+#vg1,
+#ex1 {
+    background-color: #00FF00;
+}
+
+#go1 {
+    background-color: #FFFF00;
+}
+
+#av1 {
+    background-color: #D3D3D3;
+    color: #FFFFFF;
+}
+
+#ba1 {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
