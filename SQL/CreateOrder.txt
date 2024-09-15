@@ -1,0 +1,11 @@
+create table owners(
+  owner_id varchar(10),
+  owner_name varchar(20),
+  address varchar(20),
+  phone_no bigint,
+  email_id varchar(20)
+ );
+ 
+ ALTER TABLE owners
+ ADD CONSTRAINT pk_owner_id primary key (owner_id);
+  
