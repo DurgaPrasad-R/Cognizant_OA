@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bill Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Bill Calculator</h2>
+      <table class="billTable">
+        <tr>
+          <td>Product Name</td>
+          <td>
+            <input
+              type="text"
+              id="productName"
+              placeholder="Product Name"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Product Price in Rs.</td>
+          <td>
+            <input
+              type="number"
+              id="price"
+              placeholder="Product Price"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Quantity</td>
+          <td>
+            <input
+              type="number"
+              id="qty"
+              placeholder="Enter Quantity"
+              min="1"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Total Price in Rs.</td>
+          <td>
+            <output id="output"></output>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" id="submit" onclick="calculateBill()">
+              Submit
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
