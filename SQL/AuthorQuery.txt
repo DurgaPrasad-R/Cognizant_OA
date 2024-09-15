@@ -1,0 +1,3 @@
+SELECT AuthorName as 'Auth_Name',
+	   CONCAT_WS(',',City,State) as 'Auth_address'
+from author;
