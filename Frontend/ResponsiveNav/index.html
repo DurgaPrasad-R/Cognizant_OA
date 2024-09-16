@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>Responsive Navigation Bar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Logo</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#">Link1</a>
+        <a href="#">Link2</a>
+        <a href="#">Link3</a>
+      </div>
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Search...
+"
+        />
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+    <div class="mobile-view" id="mob-view">
+      <div class="mobile-nav-links" id="mob-navLinks">
+        <a href="#">Link1</a>
+        <a href="#">Link2</a>
+        <a href="#">Link3</a>
+      </div>
+      <div class="mob-search-bar">
+        <input
+          type="text"
+          placeholder="Search...
+"
+        />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
