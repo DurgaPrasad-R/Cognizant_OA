@@ -1,0 +1,11 @@
+#changeBtn {
+    width: 120px;
+    background-color: brown;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.change {
+    background-color: #71E5F4;
+    border: dashed;
+}
