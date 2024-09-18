@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Address Book</title>
+    <style>
+      h1 {
+        text-align: center;
+        color: #006666;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ADDRESS BOOK</h1>
+    <form>
+      <table>
+        <tr>
+          <td>
+            <label for="name">Name</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter the name"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label id="type">Type</label>
+          </td>
+          <td>
+            <input
+              type="radio"
+              value="Temporary"
+              id="temp"
+              name="type"
+              required
+            />
+            <label for="temp">Temporary</label>
+            <input
+              type="radio"
+              id="perm"
+              value="Permanent"
+              name="type"
+              required
+            />
+            <label for="perm">Permanent</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="address">Address</label>
+          </td>
+          <td>
+            <textarea
+              name="address"
+              id="address"
+              placeholder="Fill Address here"
+              rows="3"
+              cols="20"
+              required
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label>
+          </td>
+          <td>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="abc@gmail.com"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="mobile">Mobile Number</label>
+          </td>
+          <td>
+            <input
+              type="number"
+              name="mobile"
+              id="mobile"
+              placeholder="Enter the Mobile Number"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="location">Location</label>
+          </td>
+          <td>
+            <select name="location" id="location">
+              <option value="Coimbatore" selected>Coimbatore</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Bangalore">Bangalore</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="addAddress()">Add</button></td>
+          <td><button onclick="reset()">Reset</button></td>
+        </tr>
+      </table>
+    </form>
+    <div id="result"></div>
+  </body>
+  <script type="text/javascript">
+    const _name = document.getElementById("name");
+    const _perm = document.getElementById("perm");
+    const _temp = document.getElementById("temp");
+    const _address = document.getElementById("address");
+    const _email = document.getElementById("email");
+    const _mobile = document.getElementById("mobile");
+    const _loc = document.getElementById("location");
+    const _result = document.getElementById("result");
+
+    const namePattern = /^[a-zA-Z\s]+$/;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const mobilePattern = /^[789]\d{9}$/;
+
+    const addresses = new Array();
+
+    function Address(name, type, address, email, mobile, location) {
+      this.name = name;
+      this.type = type;
+      this.address = address;
+      this.email = email;
+      this.mobile = mobile;
+      this.location = location;
+    }
+
+    function addAddress() {
+      const name = _name.value;
+      const type = _perm.checked ? "Permanent" : "Temporary";
+      const address = _address.value;
+      const email = _email.value;
+      const mobile = _mobile.value;
+      const location = _loc.value;
+
+      if (
+        namePattern.test(name) &&
+        emailPattern.test(email) &&
+        mobilePattern.test(mobile)
+      ) {
+        const addressObj = new Address(
+          name,
+          type,
+          address,
+          email,
+          mobile,
+          location
+        );
+        addresses.push(addressObj);
+        displayAddress();
+        reset();
+      } else {
+        alert("Please enter valid details");
+      }
+    }
+
+    function displayAddress() {
+      const resultTable =
+        "<table><tr><th>Name</th><th>Type</th><th>Address</th><th>Email</th><th>Mobile</th><th>Location</th></tr></table>";
+
+      _result.innerHTML = resultTable;
+
+      for (var i = 0; i < addresses.length; i++) {
+        const data = addresses[i];
+        const name = data.name;
+        const type = data.type;
+        const address = data.address;
+        const email = data.email;
+        const mobile = data.mobile;
+        const location = data.location;
+
+        const nameCol = "<td>" + name + "</td>";
+        const typeCol = "<td>" + type + "</td>";
+        const addressCol = "<td>" + address + "</td>";
+        const emailCol = "<td>" + email + "</td>";
+        const mobileCol = "<td>" + mobile + "</td>";
+        const locationCol = "<td>" + location + "</td>";
+
+        _result.firstChild.innerHTML +=
+          "<tr>" +
+          nameCol +
+          typeCol +
+          addressCol +
+          emailCol +
+          mobileCol +
+          locationCol +
+          "</tr>";
+      }
+    }
+
+    function reset() {
+      _name.value = "";
+      _perm.checked = false;
+      _temp.checked = false;
+      _address.value = "";
+      _email.value = "";
+      _mobile.value = "";
+      _loc.value = "Coimbatore";
+    }
+  </script>
+</html>
